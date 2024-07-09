@@ -1,22 +1,6 @@
 import sys
 sys.path.append(".")
 
-"""
-Steps
-- [x] Convert to pod
-- [x] Split pod5s into channels
-- [x] Basecall each run with dorado duplex
-- [x] Split reads, searching middle strand adaptors/barcodes
-- [x] Separate into simplex and duplex reads
-    - Reasons: https://github.com/nanoporetech/dorado/issues/600#issuecomment-1943011355, https://github.com/nanoporetech/dorado/issues/679#issuecomment-1988583542
-    - Demultiplex simplex reads (with trimming)
-    - Assign barcode to duplex reads according to the parent reads barcode. There can be duplex reads with parents from different barcodes, remove them
-    - Merge duplex and simplex into one file per barcode
-- [x] Switch barcode names to sample-id names
-- [x] Filter by quality, min length, max length. Optional: Cut from front and back?
-- [x] Emu
-"""
-
 ###############################################
 # ------- Libraries/Functions set up -------- #
 ###############################################
