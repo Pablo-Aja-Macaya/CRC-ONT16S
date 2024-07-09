@@ -18,6 +18,18 @@ from snakemake.logging import logger
 import plotly.express as px
 from functools import reduce
 
+###############################################
+# ------------ Config variables ------------- #
+###############################################
+# - CONDA_ENVS: values should be either the name of the conda environment or a path to a .yml env file.
+# - METADATA: metadata file following the specified format (sample-id, barcode, sequencing-run, etc)
+# - SEQUENCING_RUN_IDS: used for separated demultiplexing. Keys are run ids (must be same as in metadata) and values specify a pod5_folder where POD5s are stored.
+# - DORADO: path to dorado
+# - DORADO_MODELS: keys are dorado models ids, values contain the model path, a short name and the minimum read quality.
+# - EMU_DATABASES: keys are databases names and values are their path
+# - ILLUMINA_DATA_INPUT: Illumina input produced in [**this repository**](https://github.com/Pablo-Aja-Macaya/CRC-16S-study), used for merging and posterior comparison.
+# - BASE_FOLDER: Output folder of the pipeline
+
 # Environments
 CONDA_ENVS = {
     "pod5": "pod5",
@@ -29,9 +41,6 @@ CONDA_ENVS = {
     "pychopper": "pychopper",
 }
 
-###############################################
-# ------------ Config variables ------------- #
-###############################################
 # -- Inputs --
 METADATA = "/home/usuario/Proyectos/Results/ONT16S/data/metadata.tsv"
 SEQUENCING_RUN_IDS = {
@@ -66,8 +75,8 @@ DORADO_MODELS = {
         "minimum_quality": 12
     },
 }
-PRIMERS_CONFIG = "/home/usuario/Proyectos/Results/ONT16S/data/primer_config.txt"
-PRIMERS_FASTA = "/home/usuario/Proyectos/Results/ONT16S/data/primers.fasta"
+# PRIMERS_CONFIG = "/home/usuario/Proyectos/Results/ONT16S/data/primer_config.txt"
+# PRIMERS_FASTA = "/home/usuario/Proyectos/Results/ONT16S/data/primers.fasta"
 
 # Emu
 EMU_DATABASES = {
@@ -84,13 +93,13 @@ ILLUMINA_DATA_INPUT = {
     "metadata_table": f"/home/usuario/Proyectos/CRC-16S-study/data/non-ffpe_metadata.tsv",
 }
 
+# Main
+BASE_FOLDER = Path("/home/usuario/Proyectos/Results/ONT16S/pipeline")
 
 
 ###############################################
 # -------------- Folder set up -------------- #
 ###############################################
-# Main
-BASE_FOLDER = Path("/home/usuario/Proyectos/Results/ONT16S/pipeline")
 
 # Output paths
 SPLIT_POD5_OUTPUT = f"{BASE_FOLDER}/01_split_pod5s"
