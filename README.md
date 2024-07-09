@@ -1,5 +1,5 @@
-> [!NOTE]
-> This repository contains the explanations/code to reproduce the bioinformatic analyses done in [**xxxxxxxx**](https://doi.org/xxxxxxxxx). 
+## Summary
+This repository contains the explanations/code to reproduce the bioinformatic analyses done in [**xxxxxxxx**](https://doi.org/xxxxxxxxx), where Oxford Nanopore Technologies (ONT) reads are used to study the microbiome of colorectal cancer patients (CRC) through full 16S rRNA sequencing (V1V9). Additionally, three basecalling models (fast, hac and sup), two databases (rrnDB+NCBI-16S-RefSeq and SILVA) and two different approaches (ONT-V1V9 and Illumina-V3V4) are compared.
 
 > [!IMPORTANT]
 > Nanopore POD5 signals are classified and analyzed through the scripts shown here, but the Illumina reads used for comparison are classified using the code available in [**this repository**](https://github.com/Pablo-Aja-Macaya/CRC-16S-study).
