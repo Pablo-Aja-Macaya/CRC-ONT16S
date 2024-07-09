@@ -7,8 +7,6 @@ Steps
 - [x] Split pod5s into channels
 - [x] Basecall each run with dorado duplex
 - [x] Split reads, searching middle strand adaptors/barcodes
-- [] Detect 16S primers, without high rate of duplication (pychopper)
-- [] Optional: Remove host with kraken?
 - [x] Separate into simplex and duplex reads
     - Reasons: https://github.com/nanoporetech/dorado/issues/600#issuecomment-1943011355, https://github.com/nanoporetech/dorado/issues/679#issuecomment-1988583542
     - Demultiplex simplex reads (with trimming)
@@ -159,11 +157,8 @@ def check_no_repeated_samples(metadata_df):
 
     return metadata_df
 
-
-
 METADATA_DF = check_sequencing_run_ids_in_metadata()
 METADATA_DF = check_no_repeated_samples(METADATA_DF)
-
 
 
 ###############################################
@@ -190,8 +185,6 @@ METADATA_DF = check_no_repeated_samples(METADATA_DF)
 #     return fs
         
 
-
-
 rule all:
     input:
         # lambda wc: get_output(wc),
@@ -202,7 +195,6 @@ rule all:
         Path(MERGE_ALL_EMU_TABLES, "feature_table.tsv"),
         Path(MERGE_ONT_AND_ILLUMINA, "feature_table.tsv"),
         Path(BIOM_CONVERSION, "feature_table.biom.json"),
-
 
 
 # ---- Convert ----
@@ -250,8 +242,6 @@ rule dorado:
         {params.dorado} duplex --emit-fastq -b 64 {params.model} {input.pod5_folder} | pigz -p {threads} > {output.reads}
         """
 
-
-
 rule nanoplot:
     input:
         reads = rules.dorado.output.reads,
@@ -263,12 +253,6 @@ rule nanoplot:
         """
         NanoPlot --fastq {input.reads} -o {output.folder} -t {threads}
         """
-
-
-
-
-
-
 
 
 rule separate_read_types:
@@ -516,11 +500,6 @@ rule split_on_adapter:
         # Clean
         rm -r {output.folder}/split
         """
-
-
-
-
-
 
 # rule detect_primers:
 #     """
@@ -806,9 +785,6 @@ rule merge_all_emu_tables_per_group:
         taxonomy_table.to_csv(output.taxonomy_table, sep="\t", index=None)
         metadata_df.to_csv(output.metadata_table, sep="\t", index=None)
 
-
-
-
 rule merge_all_emu_tables:
     input:
         unpack(lambda wc: {
@@ -925,8 +901,6 @@ rule merge_all_emu_tables:
         metadata_table.to_csv(output.metadata_table, index=None, sep="\t")
 
 
-
-
 rule merge_ont_and_illumina:
     input:
         ont_feature_table = rules.merge_all_emu_tables.output.feature_table,
@@ -989,8 +963,6 @@ rule merge_ont_and_illumina:
         merged_feature_table.to_csv(output.feature_table, index=None, sep="\t")
         merged_taxonomy_table.to_csv(output.taxonomy_table, index=None, sep="\t")
         merged_metadata_table.to_csv(output.metadata_table, index=None, sep="\t")
-
-
 
 rule biom_conversion:
     input:

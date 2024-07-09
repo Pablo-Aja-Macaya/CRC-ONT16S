@@ -1,0 +1,33 @@
+name: chopper
+channels:
+  - conda-forge
+  - bioconda
+  - agbiome
+  - r
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=2_gnu
+  - binutils_impl_linux-64=2.40=hf600244_0
+  - chopper=0.5.0=hdcf5f25_2
+  - clang=16.0.6=ha0738ec_0
+  - clang-16=16.0.6=default_h1cdf331_0
+  - gcc_impl_linux-64=13.1.0=hc4be1a9_0
+  - icu=72.1=hcb278e6_0
+  - kernel-headers_linux-64=2.6.32=he073ed8_15
+  - ld_impl_linux-64=2.40=h41732ed_0
+  - libclang-cpp16=16.0.6=default_h1cdf331_0
+  - libgcc-devel_linux-64=13.1.0=he3cc6c4_0
+  - libgcc-ng=13.1.0=he5830b7_0
+  - libgomp=13.1.0=he5830b7_0
+  - libiconv=1.17=h166bdaf_0
+  - libllvm16=16.0.6=h5cf9203_0
+  - libsanitizer=13.1.0=hfd8a6a1_0
+  - libstdcxx-ng=13.1.0=hfd8a6a1_0
+  - libxml2=2.11.4=h0d562d8_0
+  - libzlib=1.2.13=hd590300_5
+  - sysroot_linux-64=2.12=he073ed8_15
+  - xz=5.2.6=h166bdaf_0
+  - zlib=1.2.13=hd590300_5
+  - zstd=1.5.2=h3eb15da_6
+prefix: /home/usuario/Proyectos/environments/miniconda3/envs/chopper
