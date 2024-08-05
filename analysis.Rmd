@@ -130,10 +130,10 @@ There are three parts that must be loaded for a phyloseq object, the features (f
 
 ```{r class.source = 'fold-show'}
 BASE_DIR = "/home/usuario/Proyectos/Results/ONT16S"
-feature_table_file <- as.character(glue("/home/usuario/Proyectos/Results/ONT16S/pipeline/15_biom_conversion/feature_table.biom.json"))
-metadata_file <- as.character(glue("/home/usuario/Proyectos/Results/ONT16S/pipeline/15_biom_conversion/metadata_table.tsv"))
-taxmat_file <- as.character(glue("/home/usuario/Proyectos/Results/ONT16S/pipeline/15_biom_conversion/taxonomy_table.tsv"))
-contamination_file <- as.character("/home/usuario/Proyectos/Results/ONT16S/data/contaminants.tsv")
+feature_table_file <- as.character(glue("./data/feature_table.json"))
+metadata_file <- as.character(glue("./data/metadata_table.tsv"))
+taxmat_file <- as.character(glue("./data/taxonomy_table.tsv"))
+contamination_file <- as.character("./data/contaminants.tsv")
 # tree_file <- as.character(glue("{BASE_DIR}/output/qiime2/export_results/tree.nwk"))
 output_folder <- as.character(glue("{BASE_DIR}/r_tests"))
 biosample_col <- "biosample_name"

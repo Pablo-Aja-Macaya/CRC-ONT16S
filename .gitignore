@@ -1,6 +1,8 @@
 r_tests/
 pipeline/
-data/
+data/ont_metadata.tsv
+data/primers.fasta
+data/primers_config.txt
 *_cache/
 *_files/
 
