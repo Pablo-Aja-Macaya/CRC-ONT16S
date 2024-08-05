@@ -5,7 +5,7 @@ This repository contains the explanations/code to reproduce the bioinformatic an
 > Nanopore POD5 signals are classified and analyzed through the scripts shown here, but the Illumina reads used for comparison are classified using the code available in [**this repository**](https://github.com/Pablo-Aja-Macaya/CRC-16S-study).
 
 ## Index
-- [Requirements](#requirements)
+- [Environments](#environments)
 - [Input and metadata](#input-and-metadata)
 - [Post processing](#post-processing)
 - [Other analyses](#other-analyses)
@@ -48,7 +48,7 @@ snakemake -s classification_pipeline.smk -c $threads --use-conda --keep-going
 
 
 ## Post processing
-A script has been developed to format and clean data and to compare alpha-diversity, beta-diversity, relative abundance and differential abundance. This script is available as a Rmarkdown file at `analysis.R`. Additionally, input for `analysis.R` is provided in `data/`. It is the result of processing ONT reads through `classification_pipeline.smk` and merging the output with Illumina's results:
+A script has been developed to format and clean data and to compare alpha-diversity, beta-diversity, relative abundance and differential abundance. This script is available at `analysis.Rmd`. Additionally, input for `analysis.Rmd` is provided in `data/`. It is the result of processing ONT reads through `classification_pipeline.smk` and merging the output with Illumina's results:
 - `metadata_table.tsv` 
 - `taxonomy_table.tsv`
 - `feature_table.biom.json`
