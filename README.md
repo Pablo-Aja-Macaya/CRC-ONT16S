@@ -20,7 +20,7 @@ conda activate snakemake_env
 mamba install snakemake==7.18.2 python==3.8.10 pandas==1.5.0 numpy==1.23.1 colorama matplotlib seaborn
 ```
 
-The rest of the environments are available at `envs/*.yml`. They are all used by `classification_pipeline.smk` at variable definition `CONDA_ENVS` (beginning of script) except `ancombc2.yml`, which is used by `analysis.R`. Additionally, an installation of dorado and its models is required for `classification_pipeline.smk`, and is also defined at the beginning of the script.
+The rest of the environments are available at `envs/*.yml`. They are all used by `classification_pipeline.smk` at variable definition `CONDA_ENVS` (beginning of script) except `ancombc2.yml`, which is used by `analysis.Rmd`. Additionally, an installation of dorado and its models is required for `classification_pipeline.smk`, and is also defined at the beginning of the script.
 
 ## Input and metadata
 
