@@ -1,4 +1,5 @@
 r_tests/
+scripts/
 pipeline/
 data/ont_metadata.tsv
 data/primers.fasta
